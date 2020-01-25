@@ -14,10 +14,11 @@ public class asignaturas{
     String licenciatura;
     String nombreAsignatura;
 
-    public asignaturas(String claveA, String licenciatura, String nombreAsignatura) {
-        this.claveA = claveA;
+    public asignaturas(String nombreAsignatura, String licenciatura, String claveA) {
+        
         this.licenciatura = licenciatura;
         this.nombreAsignatura = nombreAsignatura;
+        this.claveA = claveA;
     }
 
     public String getClaveA() {

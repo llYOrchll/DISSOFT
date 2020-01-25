@@ -20,8 +20,8 @@ import java.util.List;
 public class CargaAsigProf extends javax.swing.JFrame {
     
     public void CargaComBox(){
-        List<asignaturas> listaAsignaturas = new ArrayList<asignaturas>();
-        List<maestros> listaMaestros = new ArrayList<maestros>();
+        List<asignaturas> listaAsignaturas = new ArrayList<>();
+        List<maestros> listaMaestros = new ArrayList<>();
         
         listaAsignaturas = LeerCSV.ImpAsigCSV();
         listaMaestros = LeerCSV.ImpMaestrosCSV();

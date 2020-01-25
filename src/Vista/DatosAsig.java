@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import CSV.LeerCSV;
 import Modelo.asignaturas;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,24 +19,25 @@ public class DatosAsig extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     
     public void AutoCarga(){
-        List<asignaturas> listaAsignaturas = new ArrayList<asignaturas>();
-        modelo.addColumn("Clave");
-        modelo.addColumn("Licenciatura");
+        List<asignaturas> listaAsignaturas = new ArrayList<>();
+        listaAsignaturas = LeerCSV.ImpAsigCSV();
         modelo.addColumn("Nombre de Asignatura");
+        modelo.addColumn("Licenciatura");
+        modelo.addColumn("Clave");
         
         this.jTable1.setModel(modelo);
         
         String data[][] = new String[listaAsignaturas.size()][3];
         for(int i=0; i< listaAsignaturas.size(); i++){
-            data[i][0] = listaAsignaturas.get(i).getClaveA();
+            data[i][0] = listaAsignaturas.get(i).getNombreAsignatura();
             data[i][1] = listaAsignaturas.get(i).getLicenciatura();
-            data[i][2] = listaAsignaturas.get(i).getNombreAsignatura();
+            data[i][2] = listaAsignaturas.get(i).getClaveA();
         }
         
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 data,
                 new String[] {
-                    "Clave", "Licenciatura", "Nombre de Asignatura"
+                    "Nombre de Asignatura", "Licenciatura", "Clave"
                 }
         ));
     
@@ -118,37 +120,37 @@ public class DatosAsig extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DatosAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DatosAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DatosAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DatosAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DatosAsig().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(DatosAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(DatosAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(DatosAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(DatosAsig.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//               
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AtrasBT;

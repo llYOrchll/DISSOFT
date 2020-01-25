@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import CSV.LeerCSV;
 import Modelo.maestros;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +20,13 @@ public class DatosMaestros extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     
     public void AutoCarga(){
-        List<maestros> listaMaestros = new ArrayList<maestros>();
+        List<maestros> listaMaestros = new ArrayList<>();
+        listaMaestros = LeerCSV.ImpMaestrosCSV();
         modelo.addColumn("Clave");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido Paterno");
         modelo.addColumn("Apellido Materno");
+        
         
         this.jTable1.setModel(modelo);
         
@@ -38,7 +41,7 @@ public class DatosMaestros extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 data,
                 new String[] {
-                    "Clave", "Nombre", "Apellido Paterno", "Apellido Materno"
+                    "Clave", "Apellido Paterno", "Apellido Materno" ,"Nombre", 
                 }
         ));
     }

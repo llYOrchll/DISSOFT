@@ -10,16 +10,17 @@ package Modelo;
  * @author LEFT4
  */
 public class maestros {
-    private String nombreMaestro;
-    private String apellidoPM;
-    private String apellidoMM;
-    public String clave;
+    String nombreMaestro;
+    String apellidoPM;
+    String apellidoMM;
+    String clave;
 
-    public maestros(String nombreMaestro, String apellidoPM, String apellidoMM, String clave) {
+    public maestros(String clave, String nombreMaestro, String apellidoPM, String apellidoMM) {
+        this.clave = clave;
         this.nombreMaestro = nombreMaestro;
         this.apellidoPM = apellidoPM;
         this.apellidoMM = apellidoMM;
-        this.clave = clave;
+        
     }
 
     public String getNombreMaestro() {

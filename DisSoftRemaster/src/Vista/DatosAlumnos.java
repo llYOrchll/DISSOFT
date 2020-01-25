@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import CSV.LeerCSV;
 import Modelo.alumnos;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,8 @@ public class DatosAlumnos extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     
     public void AutoCarga(){
-        List<alumnos> listaAlumnos = new ArrayList<alumnos>();
+        List<alumnos> listaAlumnos = new ArrayList<>();
+        listaAlumnos = LeerCSV.ImpAlumnosCSV();
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido Paterno");
         modelo.addColumn("Apellido Materno");

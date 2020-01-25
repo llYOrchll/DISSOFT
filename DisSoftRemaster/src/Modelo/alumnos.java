@@ -10,10 +10,10 @@ package Modelo;
  * @author LEFT4
  */
 public class alumnos {
-    private String nombre;
-    private String apellidoP;
-    private String apellidoM;
-    private String matricula;
+    String nombre;
+    String apellidoP;
+    String apellidoM;
+    String matricula;
 
     public alumnos(String nombre, String apellidoP, String apellidoM, String matricula) {
         this.nombre = nombre;
