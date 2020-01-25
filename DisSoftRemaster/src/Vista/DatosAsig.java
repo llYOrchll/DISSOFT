@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import CSV.LeerCSV;
 import Modelo.asignaturas;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,24 +19,25 @@ public class DatosAsig extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     
     public void AutoCarga(){
-        List<asignaturas> listaAsignaturas = new ArrayList<asignaturas>();
-        modelo.addColumn("Clave");
-        modelo.addColumn("Licenciatura");
+        List<asignaturas> listaAsignaturas = new ArrayList<>();
+        listaAsignaturas = LeerCSV.ImpAsigCSV();
         modelo.addColumn("Nombre de Asignatura");
+        modelo.addColumn("Licenciatura");
+        modelo.addColumn("Clave");
         
         this.jTable1.setModel(modelo);
         
         String data[][] = new String[listaAsignaturas.size()][3];
         for(int i=0; i< listaAsignaturas.size(); i++){
-            data[i][0] = listaAsignaturas.get(i).getClaveA();
+            data[i][0] = listaAsignaturas.get(i).getNombreAsignatura();
             data[i][1] = listaAsignaturas.get(i).getLicenciatura();
-            data[i][2] = listaAsignaturas.get(i).getNombreAsignatura();
+            data[i][2] = listaAsignaturas.get(i).getClaveA();
         }
         
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 data,
                 new String[] {
-                    "Clave", "Licenciatura", "Nombre de Asignatura"
+                    "Nombre de Asignatura", "Licenciatura", "Clave"
                 }
         ));
     
