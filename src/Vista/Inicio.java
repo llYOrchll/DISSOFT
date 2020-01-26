@@ -31,6 +31,8 @@ public class Inicio extends javax.swing.JFrame {
         SubTitulo2 = new javax.swing.JLabel();
         VerDatosBT = new javax.swing.JButton();
         AsignarBT = new javax.swing.JButton();
+        IrCargarHorarioBT = new javax.swing.JButton();
+        SubTitulo3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,40 +59,56 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        IrCargarHorarioBT.setText("Entrar");
+        IrCargarHorarioBT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IrCargarHorarioBTMouseClicked(evt);
+            }
+        });
+
+        SubTitulo3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        SubTitulo3.setText("Cargar Horarios");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Titulo1)
-                .addGap(135, 135, 135))
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(SubTitulo1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addComponent(SubTitulo3)
+                .addGap(70, 70, 70)
                 .addComponent(SubTitulo2)
                 .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(VerDatosBT)
+                .addGap(103, 103, 103)
+                .addComponent(IrCargarHorarioBT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AsignarBT)
                 .addGap(111, 111, 111))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Titulo1)
+                .addGap(187, 187, 187))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(45, 45, 45)
                 .addComponent(Titulo1)
-                .addGap(71, 71, 71)
+                .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SubTitulo1)
-                    .addComponent(SubTitulo2))
+                    .addComponent(SubTitulo2)
+                    .addComponent(SubTitulo3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(VerDatosBT)
-                    .addComponent(AsignarBT))
+                    .addComponent(AsignarBT)
+                    .addComponent(IrCargarHorarioBT))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
 
@@ -108,6 +126,12 @@ public class Inicio extends javax.swing.JFrame {
         D.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_VerDatosBTMouseClicked
+
+    private void IrCargarHorarioBTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IrCargarHorarioBTMouseClicked
+        CargaAsigProfAlum APA = new CargaAsigProfAlum();
+        APA.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_IrCargarHorarioBTMouseClicked
 
     /**
      * @param args the command line arguments
@@ -146,8 +170,10 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AsignarBT;
+    private javax.swing.JButton IrCargarHorarioBT;
     private javax.swing.JLabel SubTitulo1;
     private javax.swing.JLabel SubTitulo2;
+    private javax.swing.JLabel SubTitulo3;
     private javax.swing.JLabel Titulo1;
     private javax.swing.JButton VerDatosBT;
     // End of variables declaration//GEN-END:variables

@@ -143,4 +143,34 @@ public class EscribirCSV {
             e1.printStackTrace();
         }
     }
+     public static void ExpAsigProfAlumCSV(List<AsigProfAlum> listaAsigProfAlum){
+        String salidaArchivoAsigProfAlum = "Horario.csv";
+        boolean existe = new File(salidaArchivoAsigProfAlum).exists();
+        
+        if(existe){
+            File archivoAsigProfAlum = new File(salidaArchivoAsigProfAlum);
+            archivoAsigProfAlum.delete();
+        }
+        
+        try{
+            CsvWriter salidaAsigProfAlumCSV = new CsvWriter(new FileWriter(salidaArchivoAsigProfAlum, true), ',');
+            salidaAsigProfAlumCSV.write("Clave de maestro");
+            salidaAsigProfAlumCSV.write("Asignatura");
+            
+            salidaAsigProfAlumCSV.endRecord();
+            
+            for(AsigProfAlum asigprofalum : listaAsigProfAlum){
+                salidaAsigProfAlumCSV.write(asigprofalum.getNombreAlum());
+                salidaAsigProfAlumCSV.write(asigprofalum.getNombreAsig());
+                salidaAsigProfAlumCSV.write(asigprofalum.getNombreMstr());
+                salidaAsigProfAlumCSV.endRecord();
+            }
+            
+            
+            salidaAsigProfAlumCSV.close();
+        }
+        catch(IOException e1){
+            e1.printStackTrace();
+        }
+    }
 }

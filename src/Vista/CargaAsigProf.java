@@ -30,8 +30,8 @@ public class CargaAsigProf extends javax.swing.JFrame {
         String[] clavesM= new String[listaMaestros.size()];
         for(int i=0;i< listaAsignaturas.size();i++)
         {
-            clavesA[i] = listaAsignaturas.get(i).getClaveA();
-            clavesM[i] = listaMaestros.get(i).getClave();
+            clavesA[i] = listaAsignaturas.get(i).getNombreAsignatura();
+            clavesM[i] = listaMaestros.get(i).getNombreMaestro();
         }       
         
 //        System.out.println("WORKING");

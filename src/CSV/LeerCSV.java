@@ -102,7 +102,7 @@ public class LeerCSV {
     }
     
         public static List<AsigProf> ImpAsigProfCSV(){
-        List<AsigProf> listaAsigProf = new ArrayList<AsigProf>();
+        List<AsigProf> listaAsigProf = new ArrayList();
         
         try{
             CsvReader leerAsigProf = new CsvReader("Materias.csv");
@@ -125,6 +125,34 @@ public class LeerCSV {
             ex1.printStackTrace();
         }
             return listaAsigProf;
+
+    }
+        
+        public static List<AsigProfAlum> ImpAsigProfAlumCSV(){
+        List<AsigProfAlum> listaAsigProfAlum = new ArrayList();
+        
+        try{
+            CsvReader leerAsigProfAlum = new CsvReader("Horario.csv");
+            leerAsigProfAlum.readHeaders();
+        
+            while(leerAsigProfAlum.readRecord()){
+            
+                String nombreAlum = leerAsigProfAlum.get(0);
+                String nombreAsig = leerAsigProfAlum.get(1);
+                String nombreMstr = leerAsigProfAlum.get(2);
+                listaAsigProfAlum.add(new AsigProfAlum(nombreAlum, nombreAsig, nombreMstr));
+               
+                  
+        }
+            leerAsigProfAlum.close(); 
+        
+
+        } catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException ex1){
+            ex1.printStackTrace();
+        }
+            return listaAsigProfAlum;
 
     }
 }
